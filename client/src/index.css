@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+@import "tailwindcss";
+
+:root {
+  --cyber-bg: #0a0a12;
+  --cyber-card: #0f0f1e;
+  --cyber-card-hover: #141428;
+  --cyber-border: #1e1e3f;
+  --cyber-accent: #7b2fff;
+  --cyber-neon: #00f5ff;
+  --cyber-up: #39ff14;
+  --cyber-down: #ff6b35;
+  --cyber-text: #e2e8f0;
+  --cyber-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cyber-bg);
+  color: var(--cyber-text);
+  font-family: 'Share Tech Mono', monospace;
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', monospace;
+}
+
+.card-glow {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-glow:hover {
+  border-color: var(--cyber-accent) !important;
+  box-shadow: 0 0 20px rgba(123, 47, 255, 0.4);
+}
+
+.card-owned {
+  border-color: var(--cyber-neon) !important;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.3);
+}
+
+.pulse-dot {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cyber-bg); }
+::-webkit-scrollbar-thumb { background: var(--cyber-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyber-accent); }
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}

@@ -1,0 +1,11 @@
+{
+  "name": "saberlight-card",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "start": "node server/src/index.js",
+    "dev:server": "cd server && node src/index.js",
+    "dev:client": "cd client && npm run dev"
+  }
+}
