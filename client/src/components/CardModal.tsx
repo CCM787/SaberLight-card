@@ -7,7 +7,7 @@ interface Props {
   onClose: () => void;
 }
 
-function priceChangeLabel(change: number | null): JSX.Element | null {
+function priceChangeLabel(change: number | null) {
   if (change === null) return null;
   const cents = change;
   const sign = cents >= 0 ? '+' : '';

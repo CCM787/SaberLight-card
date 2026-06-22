@@ -16,7 +16,7 @@ function timeAgo(ms: number): string {
   return `${h} ч назад`;
 }
 
-export default function StatsBar({ cards, lastUpdated, nextRefreshAt }: Props) {
+export default function StatsBar({ cards, lastUpdated }: Props) {
   const priced = cards.filter(c => c.sell_price !== null && c.sell_price > 0);
   const cheapest = priced.length ? priced.reduce((a, b) => (a.sell_price! < b.sell_price! ? a : b)) : null;
   const priciest = priced.length ? priced.reduce((a, b) => (a.sell_price! > b.sell_price! ? a : b)) : null;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Line, LineChart, Legend
+  ResponsiveContainer, Line, LineChart
 } from 'recharts';
 import { fetchSnapshots } from '../api';
 import type { PriceSnapshot } from '../types';
@@ -102,8 +102,8 @@ export default function PriceChart({ hashName }: Props) {
             contentStyle={{ background: '#0f0f1e', border: '1px solid #1e1e3f', borderRadius: 4 }}
             labelStyle={{ color: '#64748b', fontSize: 11 }}
             labelFormatter={v => formatDate(Number(v))}
-            formatter={(value: number, name: string) =>
-              name === 'price' ? [formatPrice(value), 'Цена'] : [value, 'Лотов']
+            formatter={(value: unknown, name: string) =>
+              name === 'price' ? [formatPrice(Number(value)), 'Цена'] : [Number(value), 'Лотов']
             }
           />
           <Area type="monotone" dataKey="price" stroke="#7b2fff" strokeWidth={2}
@@ -121,7 +121,7 @@ export default function PriceChart({ hashName }: Props) {
             <Tooltip
               contentStyle={{ background: '#0f0f1e', border: '1px solid #1e1e3f', borderRadius: 4 }}
               labelFormatter={v => formatDate(Number(v))}
-              formatter={(v: number) => [v, 'Лотов']}
+              formatter={(v: unknown) => [Number(v), 'Лотов']}
             />
             <Line type="monotone" dataKey="listings" stroke="#ff6b35" strokeWidth={1.5}
               dot={false} activeDot={{ r: 3 }} />
